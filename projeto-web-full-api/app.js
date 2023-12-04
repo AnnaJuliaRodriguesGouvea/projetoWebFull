@@ -45,8 +45,8 @@ app.use("/user", require("./src/controllers/userController"))
 app.use("/fruit", require("./src/controllers/fruitController"))
 
 https.createServer(options, app).listen(3001, () => {
-    // installDB.install()
-    //   .then(() => console.log("Banco instalado com sucesso"))
-    //   .catch((error) => console.error(error))
+    installDB.install()
+      .then(() => console.log("Banco instalado com sucesso"))
+      .catch((error) => console.error(error))
     console.log("Rodando na porta 3001")
 });
