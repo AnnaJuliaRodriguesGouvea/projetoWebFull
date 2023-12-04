@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+    rabbitmq:
+        container_name: "rabbitmq-container"
+        build:
+            context: .
+        environment:
+            RABBITMQ_DEFAULT_USER: "rabbitmq"
+            RABBITMQ_DEFAULT_PASS: "rabbitmq"
+            RABBITMQ_DEFAULT_VHOST: "/"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        restart: always
+
+    postgres:
+        container_name: postgres-container
+        image: postgres
+        environment:
+            POSTGRES_PASSWORD: "postgres"
+            POSTGRES_USER: "postgres"
+            POSTGRES_DB: "Log"
+        ports:
+            - "5433:5432"
